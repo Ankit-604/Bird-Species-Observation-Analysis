@@ -31,12 +31,22 @@ def load_data():
 df = load_data()
 
 # ==========================================
-# SIDEBAR NAVIGATION
+# SIDEBAR NAVIGATION & PROFILE
 # ==========================================
 st.sidebar.title("🦅 Navigation")
 page = st.sidebar.radio("Select a Page:", 
     ["📖 Problem Statement", "📊 Interactive Dashboard", "💡 Insights & Recommendations"]
 )
+st.sidebar.divider()
+
+# --- DEVELOPER PROFILE FOOTER ---
+st.sidebar.markdown("### 👨‍💻 Developer Profile")
+st.sidebar.markdown("""
+**Ankit Kumar Sharma**  
+*Data Analytics & Engineering Portfolio*  
+""")
+st.sidebar.caption("Built with Python, Streamlit & Plotly")
+
 st.sidebar.divider()
 
 # ==========================================
