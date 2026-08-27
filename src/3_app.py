@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 import plotly.express as px
+import os
 
 # ==========================================
 # PAGE CONFIGURATION
@@ -15,7 +16,11 @@ st.markdown("Explore spatial distributions, temporal trends, and conservation pr
 # ==========================================
 @st.cache_data
 def load_data():
-    conn = sqlite3.connect('../data/processed/bird_observations.db')
+    # Automatically get the absolute path to the database
+    current_dir = os.path.dirname(__file__)
+    db_path = os.path.join(current_dir, '../data/processed/bird_observations.db')
+    
+    conn = sqlite3.connect(db_path)
     df = pd.read_sql_query("SELECT * FROM bird_data", conn)
     conn.close()
     
